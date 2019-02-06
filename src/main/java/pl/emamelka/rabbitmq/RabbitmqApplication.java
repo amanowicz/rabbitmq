@@ -1,13 +1,17 @@
 package pl.emamelka.rabbitmq;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import pl.emamelka.rabbitmq.service.Receiver;
+import pl.emamelka.rabbitmq.service.Sender;
 
-@SpringBootApplication
 public class RabbitmqApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(RabbitmqApplication.class, args);
+    public static void main(String[] args) throws Exception {
+
+        Sender sender = new Sender();
+        sender.createConnection();
+
+        Receiver receiver = new Receiver();
+        receiver.receiveConnection();
     }
 
 }
